@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise for You</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="birthdayMessage" class="step">
+      <h1>Happy Birthday My love!</h1>
+      <p>❤️❤️ਬੇਹਦ ਖੁਸ਼ੀ ਦੇ ਨਾਲ ਤੇਰੇ ਜਨਮ ਦਿਨ ਤੇ, ਸਾਡੀ ਜ਼ਿੰਦਗੀ ਵਿੱਚ ਤੂੰ ਸਭ ਤੋਂ ਵਧੀਆ ਹੈ।<br><br>
+        ਤੂੰ ਮੇਰੇ ਜੀਵਨ ਦਾ ਚਾਨਣ ਅਤੇ ਮੇਰੀ ਦਿਲੀ ਖ਼ੁਸ਼ੀ ਹੈ। ਮੈਂ ਤੈਨੂੰ ਬੇਹਦ ਪਿਆਰ ਕਰਦੀ ਹਾਂ ਅਤੇ ਸਦਾ ਤੇਰੇ ਨਾਲ ਰਹਿਣ ਦੀ ਦुआ ਕਰਦੀ ਹਾਂ।<br><br>
+        ਤੇਰਾ ਜਨਮ ਦਿਨ ਮੁਬਾਰਕ ਹੋ! ❤️❤️</p>
+      <button onclick="showProposal()">Surprise</button>
+      <button onclick="showLoveMessage()">Message</button>
+    </div>
+
+    <div id="proposal" class="step" style="display:none;">
+      <h2>I want to ask you something...</h2>
+      <p>Will you marry me?</p>
+      <button onclick="handleProposal('yes')">Yes</button>
+      <button onclick="handleProposal('no')">No</button>
+    </div>
+
+    <div id="responseYes" class="step" style="display:none;">
+      <h2>Yupppy! I love you and I can't wait to marry you!</h2>
+      <p>You are the best thing that has happened to me. May you get everything you want. "I love you" ❤️</p>
+      <div id="happy-content">
+        <img src="https://media.giphy.com/media/G96zgIcQn1L2xpmdxi/giphy.gif" alt="Happy Celebration" id="happy-image">
+        <p>❤️❤️❤️</p>
+        <p>😊😊😊</p>
+      </div>
+      <button onclick="showBirthdayMessage()">Back to Main Screen</button>
+    </div>
+
+    <div id="responseNo" class="step" style="display:none;">
+      <h2>😢 Please say yes!</h2>
+      <div id="sad-content">
+        <img src="https://media.giphy.com/media/W0c3xcZ3F1d0EYYb0f/giphy.gif" alt="Sad Expression" id="sad-image">
+        <p>💔💔💔</p>
+        <p>😔😔😔</p>
+      </div>
+      <button onclick="handleProposal('yes')">Yes</button>
+      <button onclick="handleFinalNo()">No</button>
+    </div>
+
+    <div id="finalResponseNo" class="step" style="display:none;">
+      <h2>You are hitched and can't say no. You are mine and mine forever!</h2>
+      <div id="final-content">
+        <img src="https://media.giphy.com/media/d42fBz7HHxLS2gDVsy/giphy.gif" alt="Hitched Forever" id="final-image">
+        <p>💍❤️</p>
+        <p>😉😉😉</p>
+      </div>
+      <button onclick="showBirthdayMessage()">Back to Main Screen</button>
+    </div>
+
+    <div id="loveMessage" class="step" style="display:none;">
+      <h2>My Dear love,</h2>
+      <p>❤️❤️On your special day, even though we are miles apart, my love for you knows no distance.
+
+        I want you to know that you are the most important person in my life, and your presence fills my heart with joy and warmth. Every day, I am grateful for the love we share, and I cherish every moment we spent together, even from afar.
+
+        Your love is a guiding light in my life, and I am so fortunate to have you as my partner. Your support and affection make each day brighter, even when we’re apart. I think about you constantly and look forward to the day when we can celebrate special moments together in person.
+
+        Today, on your birthday, I want to remind you just how much you mean to me. Your kindness, support, and love are the reasons I fall in love with you more each day. I am so proud to call you my husband and can't wait to create more memories together.
+
+        Wishing you a birthday filled with happiness, love, and everything you’ve ever dreamed of. May this year bring you closer to your dreams and may we soon be together to celebrate many more birthdays.
+
+        Until then, know that you are deeply loved and missed.
+        <p>Happy Birthday,my love</p>
+        <p>Forever yours Anjali❤️❤️</p>
+      <button onclick="showBirthdayMessage()">Back to Main Screen</button>
+    </div>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
+
+
+@import url("https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@700&display=swap");
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("https://images.pexels.com/photos/1778082/pexels-photo-1778082.jpeg")
+    no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#container {
+  background: rgba(255, 228, 225, 0.9); /* Very light pink with some opacity */
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  color: #ff1493; /* Deep pink */
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #ff1493; /* Deep pink */
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+p {
+  color: #ff69b4; /* Hot pink for the paragraphs */
+  font-size: 18px;
+}
+
+button {
+  background-color: #ff1493; /* Deep pink */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #c71585; /* Medium violet red */
+}
+
+#happy-content,
+#sad-content,
+#final-content {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+#happy-content img,
+#sad-content img,
+#final-content img {
+  width: 150px;
+  height: auto;
+  margin: 10px 0;
+}
+
+#happy-content p,
+#sad-content p,
+#final-content p {
+  margin: 0;
+}
+
+.step {
+  position: relative;
+}
+
+#happy-content {
+  color: #ff69b4; /* Hot pink for hearts and smileys */
+}
+
+#sad-content {
+  color: #ff6347; /* Tomato red for sad content */
+}
+
+#final-content {
+  color: #ff4500; /* Orange red for final content */
+}
+
+
+
+
+// scripts.js
+
+function showProposal() {
+  document.getElementById("birthdayMessage").style.display = "none";
+  document.getElementById("proposal").style.display = "block";
+}
+
+function handleProposal(answer) {
+  if (answer === "yes") {
+    document.getElementById("proposal").style.display = "none";
+    document.getElementById("responseYes").style.display = "block";
+  } else {
+    document.getElementById("proposal").style.display = "none";
+    document.getElementById("responseNo").style.display = "block";
+  }
+}
+
+function handleFinalNo() {
+  document.getElementById("responseNo").style.display = "none";
+  document.getElementById("finalResponseNo").style.display = "block";
+}
+
+function showBirthdayMessage() {
+  document.getElementById("proposal").style.display = "none";
+  document.getElementById("responseYes").style.display = "none";
+  document.getElementById("responseNo").style.display = "none";
+  document.getElementById("finalResponseNo").style.display = "none";
+  document.getElementById("loveMessage").style.display = "none";
+  document.getElementById("birthdayMessage").style.display = "block";
+}
+
+function showLoveMessage() {
+  document.getElementById("birthdayMessage").style.display = "none";
+  document.getElementById("proposal").style.display = "none";
+  document.getElementById("responseYes").style.display = "none";
+  document.getElementById("responseNo").style.display = "none";
+  document.getElementById("finalResponseNo").style.display = "none";
+  document.getElementById("loveMessage").style.display = "block";
+}
